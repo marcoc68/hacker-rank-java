@@ -50,6 +50,7 @@ public class P036DataStructuresJavaSort {
 			
 			testCases--;
 		}
+		in.close();
       
 		studentList.sort(new ComparatorStudent2());
       	for(Student2 st: studentList){
