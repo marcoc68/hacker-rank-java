@@ -1,11 +1,9 @@
 // https://www.hackerrank.com/challenges/can-you-access/problem?isFullScreen=true&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
 package basic;
 
-import java.io.*;
-import java.lang.reflect.*;
-import java.util.*;
-import java.util.regex.*;
-import java.security.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.security.Permission;
 
 
 public class P042AdvancedCanYouAccess {

@@ -2,8 +2,8 @@
 package basic;
 
 //Complete this code or write your own from scratch
-import java.util.*;
-import java.io.*;
+import java.util.HashMap;
+import java.util.Scanner;
 
 class P032DataStructuresMap{
 	public static void main(String []argh)
@@ -28,5 +28,7 @@ class P032DataStructuresMap{
 				System.out.printf("%s=%d\n",s,phone);
 			}
 		}
+		
+		in.close();
 	}
 }

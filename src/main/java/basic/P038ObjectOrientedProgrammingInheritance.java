@@ -1,12 +1,6 @@
 // https://www.hackerrank.com/challenges/java-inheritance-1/problem?isFullScreen=true
 package basic;
 
-import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
-
 class Animal{
 	void walk()
 	{

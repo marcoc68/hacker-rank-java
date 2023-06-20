@@ -1,13 +1,13 @@
 // https://www.hackerrank.com/challenges/prime-checker/problem?isFullScreen=true&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
 package basic;
 
-import static java.lang.System.in;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 import java.util.HashSet;
 import java.util.Set;
+import static java.lang.System.in;
 
 
 class Prime{
