@@ -19,6 +19,7 @@ public class P035DataStructuresGenerics {
     }
 }
 
+// Este aqui tambem funciona. deixei aqui com0 exemplo do uso de generics
 //class MyGeneric<T>{
 //	T att;
 //	public MyGeneric(T att) { this.att = att; }
