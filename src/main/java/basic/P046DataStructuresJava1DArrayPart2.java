@@ -58,10 +58,10 @@ public class P046DataStructuresJava1DArrayPart2 {
 		
 		if(leap >= game.length) return true;
 		
-        // marcando -1 nos índices que tem zero (sinifica que devem ser tratados)	
+        // marcando -1 nos indices que tem zero (significa que devem ser tratados)
     	for(int i=0; i<game.length; i++) { if(game[i]==0) game[i] = -1; }
     	
-    	// o ultimo indice sempre é alcancavel
+    	// o ultimo indice sempre eh alcancavel
     	game[game.length-1] = 0;
     	
     	// marcando zero nos alcancaveis
