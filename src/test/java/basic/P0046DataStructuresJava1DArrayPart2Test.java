@@ -74,7 +74,7 @@ public class P0046DataStructuresJava1DArrayPart2Test {
     public void testWin6(){
         int[] game = {0,0,0,0,0,1,0,1,1,1,1,0,1,0,1,0,0,1,0,0,0,1,0,1,0,0,0,0,1,1,0,0,1,0,0,1,1,1,1,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,1,1,1,0,0,0,0,1,0,0,1,1,1,0,0,1,1,1,1,1,1,1,1,0,1,1,0,0,0};
         int leap = 14;
-        assertFalse(canWin(leap, game));
+        assertTrue(canWin(leap, game));
     }
 
     @Test
@@ -88,6 +88,20 @@ public class P0046DataStructuresJava1DArrayPart2Test {
     public void testWin_84_14(){
         int[] game = {0,0,0,0,0,1,0,1,1,1,1,0,1,0,1,0,0,1,0,0,0,1,0,1,0,0,0,0,1,1,0,0,1,0,0,1,1,1,1,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,1,1,1,0,0,0,0,1,0,0,1,1,1,0,0,1,1,1,1,1,1,1,1,0,1,1,0,0,0};
         int leap = 14;
+        assertTrue(canWin(leap, game));
+    }
+
+    @Test
+    public void testWin_63_25(){
+        int[] game = {0,1,1,1,1,0,1,1,1,1,1,0,1,0,0,1,0,1,1,0,0,1,0,0,0,0,1,1,1,1,0,1,0,0,1,1,0,0,1,0,1,0,0,0,0,0,1,1,1,0,1,1,0,1,0,0,0,1,1,1,1,1,0};
+        int leap = 25;
+        assertTrue(canWin(leap, game));
+    }
+
+    @Test
+    public void testWin_02_00(){
+        int[] game = {0,0};
+        int leap = 0;
         assertTrue(canWin(leap, game));
     }
 
@@ -106,7 +120,7 @@ public class P0046DataStructuresJava1DArrayPart2Test {
             }
             teste++;
             String result = canWin(leap, game)? "YES" : "NO";
-            System.out.println("Teste " + teste + ":" + result);
+            System.out.println("Teste: " + teste + " size:" + game.length +" leap:" + leap + " result:" + result);
 
             String esperado = scanResult.nextLine();
             assertEquals(esperado,result);
@@ -114,7 +128,29 @@ public class P0046DataStructuresJava1DArrayPart2Test {
         scan.close();
         scanResult.close();
     }
-}
 
-//17 65
-//0 0 1 0 0 1 0 0 1 1 0 1 1 1 1 0 0
+    @Test
+    public void testWin9() throws IOException {
+        Scanner scan = new Scanner(Files.newInputStream(Paths.get("src/test/resources/input2-P046DataStructuresJava1DArrayPart2.txt")));
+        Scanner scanResult = new Scanner(Files.newInputStream(Paths.get("src/test/resources/result2-P046DataStructuresJava1DArrayPart2.txt")));
+        int q = scan.nextInt();
+        int teste = 0;
+        while (q-- > 0) {
+            int n = scan.nextInt();
+            int leap = scan.nextInt();
+            int[] game = new int[n];
+            for (int i = 0; i < n; i++) {
+                game[i] = scan.nextInt();
+            }
+            teste++;
+            String esperado = scanResult.nextLine();
+            System.out.println("Teste: " + teste + " size:" + game.length +" leap:" + leap + " esperado:" + esperado);
+            String result = canWin(leap, game)? "YES" : "NO";
+            System.out.println("Teste: " + teste + " size:" + game.length +" leap:" + leap + " esperado:" + esperado + " result:" + result);
+
+            assertEquals(esperado,result);
+        }
+        scan.close();
+        scanResult.close();
+    }
+}

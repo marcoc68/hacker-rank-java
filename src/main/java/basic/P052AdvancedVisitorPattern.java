@@ -28,17 +28,9 @@ abstract class Tree {
         this.depth = depth;
     }
 
-    public int getValue() {
-        return value;
-    }
-
-    public Color getColor() {
-        return color;
-    }
-
-    public int getDepth() {
-        return depth;
-    }
+    public int getValue() {return value;}
+    public Color getColor() {return color;}
+    public int getDepth() {return depth;}
 
     public abstract void accept(TreeVis visitor);
 }

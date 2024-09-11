@@ -4,39 +4,31 @@ package basic;
 import java.util.Scanner;
 
 public class P046DataStructuresJava1DArrayPart2X {
+	public static boolean canWin(int leap, int[] game){
+		return canWin(leap, game, 0);
+	}
 
-	public static boolean canWin(int leap, int[] game) {
+	public static boolean canWin(int leap, int[] game, int pos) {
 
-		int i=0;
-		while(true){
-			if(canJump(game, i, leap)) {
-				i+=leap; log("+" + leap + "game.size:" + game.length + " i:" + i);
-				if(isWin(game,i)) return true;
-				continue;
-			}
-			if(canJump(game, i, 1   )){
-				i+=1; log("+1: game.size:" + game.length + " i:" + i);
-				if(isWin(game,i)) return true;
-				game[i] = 1;
-				continue;
-			}
-			if(canJump(game, i, -1  )){
-				i-=1; log("-1: game.size:" + game.length + " i:" + i);
-				if(isWin(game,i)) return true;
-				game[i] = 1;
-				continue;
-			}
-			return isWin(game,i);
+		if(pos+leap > game.length-1 || pos == game.length-1) return true;
+
+		game[pos] = 2;
+
+		if(canJump(game,pos,leap)){
+			if( canWin(leap, game, pos+leap) ) return true;
 		}
+		if(canJump(game,pos, 1)){
+			if( canWin(leap, game, pos+1) ) return true;
+		}
+		if(canJump(game,pos, -1)){
+			if( canWin(leap, game, pos-1) ) return true;
+		}
+		return false;
     }
 
 	private static boolean canJump(int[] game, int i, int leap){
-		if(leap>0){
-			if(i+leap>=game.length) return true; // pode passar do final
-			return (game[i+leap]==0);            // pode avancar se for zero
-		}
-		if(i+leap<=0) return false; // nao pode voltar pro primeiro ou anterior
-		return (game[i+leap]==0);   // pode voltar se for zero
+		log("+" + leap + ": game.size:" + game.length + " i:" + i);
+		return (i+leap>=0) && (i+leap>game.length || game[i+leap]==0);
 	}
 	private static boolean isWin(int[] game, int i){
 		return i>=game.length;
